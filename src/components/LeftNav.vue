@@ -1,7 +1,7 @@
 <template>
 	<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
 		<li class="layui-nav-item">
-			<router-link href="javascript:;" to="/">首页</router-link>
+			<router-link href="javascript:;" to="/homePage">首页</router-link>
 		</li>
 		<li class="layui-nav-item layui-nav-itemed">
 			<router-link href="javascript:;" to="/">商品管理</router-link>

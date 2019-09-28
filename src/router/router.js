@@ -10,6 +10,9 @@ import GoodsList from '../pages/GoodsList.vue'
 import Login from '../pages/Login.vue'
 // 导入注册页面
 import Registered from '../pages/Registered.vue'
+// 导入首页内容页面
+import HomePage from '../pages/HomePage.vue'
+
 
 export default [{
 	path: '/', // 顶级路由
@@ -22,10 +25,16 @@ export default [{
 			name: 'home',
 			component: Home,
 			children: [{ // 商品列表
-				path: '/goodsList',
-				name: 'goodsList',
-				component: GoodsList
-			}]
+					path: '/goodsList',
+					name: 'goodsList',
+					component: GoodsList
+				},
+				{
+					path: '/homePage', // 首页内容
+					name: 'homePage',
+					component: HomePage
+				}
+			]
 		}, { // 商品详情
 			path: '/goodsDetail',
 			name: 'goodsDetail',

@@ -41,6 +41,11 @@
 		},
 		mounted() { // 挂载
 			// 加载数据的时候在这个方法里面执行
+			var _this = this;
+			// 默认展示首页内容
+			_this.$router.push({
+				path:'/homePage'
+			})
 			//一般直接写在一个js文件中
 			layui.use(['layer', 'form'], function() {
 				var layerDialog = layui.layer;
@@ -114,6 +119,6 @@
 		position: absolute;
 		height: 100%;
 		display: inline;
-		background-color: aquamarine;
+		background-color: white;
 	}
 </style>
