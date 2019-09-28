@@ -102,7 +102,15 @@
 							_this.draw(show_num);
 							return;
 						} else { // 用户名和密码都不为空 进行网络请求
-							$.ajax({
+							setTimeout(function() {
+								layer.closeAll('loading');
+
+							}, 10);
+							layer.msg("登陆成功！")
+							_this.$router.push({
+								path: '/home'
+							});
+							/* $.ajax({
 								type: "post",
 								url: "",
 								async: true,
@@ -117,13 +125,10 @@
 							}).success(function(res) {
 								// layer.msg("登陆成功", function() {});
 							}).error(function(res) {
-								setTimeout(function() {
-									layer.closeAll('loading');
 
-								}, 10);
-								window.location.href = "index.html";
-								layer.msg("请求失败！")
-							});
+								// window.location.href = "index.html";
+
+							}); */
 						}
 					} else {
 						// 挂于加载框
