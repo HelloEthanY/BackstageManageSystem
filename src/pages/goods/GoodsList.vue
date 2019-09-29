@@ -18,7 +18,7 @@
 </template>
 
 <script>
-	import HelloWorld from '../components/HelloWorld.vue'
+	// import HelloWorld from '../components/HelloWorld.vue'
 
 	// 全局变量
 	var laydate;
@@ -33,11 +33,11 @@
 	export default {
 		name: 'goodsList',
 		components: { // 注册组件
-			HelloWorld
+			// HelloWorld
 		},
 		data() {
 			return {
-				baseUrl: 'http://192.168.17.115:8033'
+				baseUrl: this.$getMyConfig.getBaseUrl("baseUrl"),
 			}
 		},
 		mounted: function() {
@@ -87,8 +87,9 @@
 							});
 						}
 					},
-					error: function() {
+					error: function(error) {
 						setTimeout(function() {
+							console.log("error:" + JSON.stringify(error));
 							layer.closeAll('loading');
 							layer.msg('请求失败！');
 						});
@@ -121,7 +122,7 @@
 							}, {
 								field: 'id',
 								title: 'ID',
-								width: '15%',
+								width: '9%',
 								sort: true,
 								fixed: 'left',
 								totalRowText: '合计：'
@@ -139,13 +140,13 @@
 							}, {
 								field: 'price',
 								title: '现价',
-								width: '8%',
+								width: '7%',
 								sort: true,
 								totalRow: true
 							}, {
 								field: 'oldPrice',
 								title: '原价',
-								width: '8%',
+								width: '7%',
 								sort: true
 							}, {
 								field: 'detail',
@@ -155,7 +156,7 @@
 							}, {
 								fixed: 'right',
 								title: '操作',
-								width: '15%',
+								width: '16%',
 								align: 'center',
 								toolbar: '#barShop'
 							}
@@ -170,6 +171,9 @@
 					switch (obj.event) {
 						case 'add':
 							layer.msg('添加');
+							_this.$router.push({
+								name:'goodsEditor'
+							})
 							break;
 						case 'update':
 							if (data.length === 0) {
@@ -197,6 +201,13 @@
 					console.log(JSON.stringify(data))
 
 					if (layEvent === 'detail') {
+						_this.$router.push({
+							name: 'goodsEditor',
+							params: {
+								id: data.id,
+								type: '查看商品'
+							}
+						});
 						layer.msg('查看操作');
 					} else if (layEvent === 'del') {
 						layer.confirm('真的删除行么', function(index) {
@@ -207,14 +218,12 @@
 					} else if (layEvent === 'edit') {
 						layer.msg('编辑操作');
 						// 点击弹出一个html内容
-
-
-						layer.open({
-							type: 2,
-							title: "编辑商品",
-							area: ['980px', '460px'],
-							maxmin: true,
-							content: HelloWorld
+						_this.$router.push({
+							name: 'goodsEditor',
+							params: {
+								id: data.id,
+								type: '编辑商品'
+							}
 						});
 					}
 				});
@@ -225,13 +234,10 @@
 
 <style>
 	.goods-list-container {
-		z-index: -5;
-		width: 100%;
 		background-color: white;
 	}
 
 	.layui-hide {
-		width: 100%;
 	}
 
 	.layui-table-cell {

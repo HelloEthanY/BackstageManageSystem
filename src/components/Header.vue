@@ -29,7 +29,7 @@
 		},
 		data() {
 			return {
-				logoContent: "管理后台系统",
+				logoContent: "元素花圃管理系统",
 				userName: "",
 			}
 		},
@@ -74,7 +74,7 @@
 	}
 
 	.header-logo {
-		margin-left: 20px;
+		margin-left: 10px;
 		height: 100%;
 		font-weight: bold;
 		font-size: 22px;
@@ -82,7 +82,7 @@
 	}
 
 	.header-menu {
-		margin-left: 30px;
+		margin-left: 10px;
 		height: 30px;
 		width: 30px;
 	}

@@ -33,6 +33,11 @@ const router = new VueRouter({
 	routes: routers // 设置路由路径数组
 })
 
+router.beforeEach(function(to,from,next){
+	console.log("to：" + to.path);
+	next();
+})
+
 // 创建一个Vue对象
 new Vue({
 	router,

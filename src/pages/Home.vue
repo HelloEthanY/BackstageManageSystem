@@ -90,6 +90,10 @@
 		z-index: 50;
 		min-width: 500px;
 		position: fixed;
+		top: 0;
+		bottom: 50px;
+		left: 0;
+		right: 0;
 		height: 50px;
 		width: 100%;
 		line-height: 50px;
@@ -105,10 +109,13 @@
 	}
 
 	.home-body-left {
-
+		position: fixed;
+		left: 0;
+		top: 50px;
+		bottom: 0;
+		right: 200px;
 		width: 200px;
 		float: left;
-		height: 100%;
 		background-color: antiquewhite;
 	}
 
@@ -116,6 +123,8 @@
 		float: left;
 		left: 200px;
 		right: 0;
+		bottom: 0;
+		top: 0;
 		position: absolute;
 		height: 100%;
 		display: inline;

@@ -4,30 +4,39 @@
 			<router-link href="javascript:;" to="/homePage">首页</router-link>
 		</li>
 		<li class="layui-nav-item layui-nav-itemed">
-			<router-link href="javascript:;" to="/">商品管理</router-link>
+			<router-link href="javascript:;" to="">商品管理</router-link>
 			<dl class="layui-nav-child">
 				<dd>
 					<router-link href="javascript:;" to="/goodsList">商品列表</router-link>
 				</dd>
 				<dd>
-					<router-link to="/" href="javascript:;">新增商品</router-link>
+					<router-link to="/" href="javascript:;">上架商品列表</router-link>
 				</dd>
 				<dd>
-					<router-link to="/" href="javascript:;">选项三</router-link>
+					<router-link to="/" href="javascript:;">下架商品列表</router-link>
+				</dd>
+				<dd>
+					<router-link to="/" href="javascript:;">商品厂库列表</router-link>
 				</dd>
 			</dl>
 		</li>
 		<li class="layui-nav-item">
-			<router-link to="/" href="javascript:;">订单列表</router-link>
+			<router-link to="" href="javascript:;">订单管理</router-link>
 			<dl class="layui-nav-child">
 				<dd>
-					<router-link to="/" href="javascript:;">移动模块</router-link>
+					<router-link to="/orderList" href="javascript:;">订单列表</router-link>
 				</dd>
 				<dd>
-					<router-link to="/" href="javascript:;">后台模版</router-link>
+					<router-link to="/" href="javascript:;">未付款订单</router-link>
 				</dd>
 				<dd>
-					<router-link to="/" href="javascript:;">电商平台</router-link>
+					<router-link to="/" href="javascript:;">已付款未发货订单</router-link>
+				</dd>
+				<dd>
+					<router-link to="/" href="javascript:;">待收货</router-link>
+				</dd>
+				<dd>
+					<router-link to="/" href="javascript:;">待评价</router-link>
 				</dd>
 			</dl>
 		</li>
