@@ -131,7 +131,7 @@
 								field: 'showImg',
 								title: '商品logo',
 								width: '10%',
-								templet: '<div><img src="http://192.168.17.115:8033{{d.showImg}}"></div>'
+								templet: '<div><img src="https://x.xgaircraft.cn:8032{{d.showImg}}"></div>'
 							},
 							{
 								field: 'subTitle',
@@ -172,7 +172,7 @@
 						case 'add':
 							layer.msg('添加');
 							_this.$router.push({
-								name:'goodsEditor'
+								name: 'goodsEditor'
 							})
 							break;
 						case 'update':
@@ -198,17 +198,22 @@
 				table.on('tool(shop-layui)', function(obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
 					var data = obj.data, //获得当前行数据
 						layEvent = obj.event; //获得 lay-event 对应的值
-					console.log(JSON.stringify(data))
-
 					if (layEvent === 'detail') {
-						_this.$router.push({
+						/* _this.$router.push({
 							name: 'goodsEditor',
 							params: {
 								id: data.id,
 								type: '查看商品'
 							}
+						}); */
+						_this.$router.push({
+							name: 'goodsDetail',
+							params: {
+								id: data.id,
+								type: '查看商品'
+							}
 						});
-						layer.msg('查看操作');
+						// layer.msg('查看操作');
 					} else if (layEvent === 'del') {
 						layer.confirm('真的删除行么', function(index) {
 							obj.del(); //删除对应行（tr）的DOM结构
@@ -216,7 +221,7 @@
 							//向服务端发送删除指令
 						});
 					} else if (layEvent === 'edit') {
-						layer.msg('编辑操作');
+						// layer.msg('编辑操作');
 						// 点击弹出一个html内容
 						_this.$router.push({
 							name: 'goodsDetail',
@@ -237,8 +242,7 @@
 		background-color: white;
 	}
 
-	.layui-hide {
-	}
+	.layui-hide {}
 
 	.layui-table-cell {
 		height: 80px;

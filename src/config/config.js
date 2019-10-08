@@ -1,5 +1,5 @@
 function getBaseUrl(str) {
-	var baseUrl = "http://192.168.17.115:8033" //测试
+	var baseUrl = "https://x.xgaircraft.cn:8032" //测试
 	// var ajaxurl = "http://112.80.39.92:8018/webservices/rest.php?version=1.1"//生产
 	switch (str) {
 		case "testBaseUrl":

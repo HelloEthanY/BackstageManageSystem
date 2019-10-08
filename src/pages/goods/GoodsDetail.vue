@@ -8,9 +8,8 @@
 			<ul class="layui-tab-title">
 				<li class="layui-this">基本信息</li>
 				<li>规格信息</li>
+				<li>logo信息</li>
 				<li>图片信息</li>
-				<li>商品管理</li>
-				<li>订单管理</li>
 			</ul>
 			<div class="layui-tab-content layui-form">
 				<!--  -->
@@ -84,12 +83,14 @@
 							<blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;margin-left: 110px;">
 								logo 预览图：
 								<div class="layui-upload-list">
-									<img class="layui-upload-img" onclick="showBigImage()" style="width: 160px;height: 160px;" id="demo1">
+									<img class="layui-upload-img" onclick="showBigImage()" style="width: 160px;height: 160px;" id="imglogo">
 									<p id="demoText"></p>
 								</div>
 							</blockquote>
 						</div>
 					</div>
+				</div>
+				<div class="layui-tab-item">
 					<!--上传商品图片-->
 					<div class="layui-form-item">
 						<blockquote class="layui-form-label">商品图片</blockquote>
@@ -102,13 +103,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="layui-tab-item">
-					内容4
-				</div>
-				<div class="layui-tab-item">
-					内容5
-				</div>
-
 			</div>
 		</div>
 		<!-- </form> -->
@@ -273,9 +267,10 @@
 			// 商品详情内容
 			showShopInfo(goodsDetail) {
 				var _this = this;
-				console.log("商品详情：" + JSON.stringify(goodsDetail))
-				$('#shopName').attr('value', goodsDetail.subTitle); 
-				$('#shopIntroduce').attr('value', goodsDetail.detail); 
+				$('#imglogo').attr('src', _this.baseUrl + goodsDetail.showImg);
+				console.log("商品详情：" + JSON.stringify(goodsDetail.detail));
+				$('#shopName').attr('value', goodsDetail.mainTitle);
+				$('#shopIntroduce').text(goodsDetail.detail);
 				$('#price').attr('value', goodsDetail.price);
 				$('#oldPirce').attr('value', goodsDetail.oldPrice);
 			},
@@ -304,9 +299,7 @@
 						// tr.remove();
 					});
 				}
-
 			}
-
 		}
 	}
 </script>
