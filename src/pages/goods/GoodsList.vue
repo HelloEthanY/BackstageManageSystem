@@ -219,7 +219,7 @@
 						layer.msg('编辑操作');
 						// 点击弹出一个html内容
 						_this.$router.push({
-							name: 'goodsEditor',
+							name: 'goodsDetail',
 							params: {
 								id: data.id,
 								type: '编辑商品'
